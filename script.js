@@ -94,6 +94,7 @@ var allTypes = Object.keys(options)
 var usercharacterChoiec = []
 var randomCharacterChoiec = []
 var valueArray = []
+var requiredLength
 
 
 // Function to prompt user for password options
@@ -108,16 +109,17 @@ function getPasswordOptions() {
   } 
   if (((required<129) && (required>8)) && usercharacterChoiec.length>0 ){
     alert("Alright,Lets go!")
+    return required
   }
   else if((required>128) || (required<8)|| isNaN(required)) {
     alert("Please make sure to chose a number between 8 and 128(both inclusive)!" )
     usercharacterChoiec = []
-    requiredLength=getPasswordOptions()
+   return getPasswordOptions()
   }
   else if (usercharacterChoiec.length==0){
   alert("Please make sure you chosed at least one character type!")
   usercharacterChoiec = []
-  requiredLength=getPasswordOptions()
+ return getPasswordOptions()
   }
   return required
 }

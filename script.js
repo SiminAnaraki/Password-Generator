@@ -98,7 +98,7 @@ var valueArray = []
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  var required  =parseInt(prompt("Please specify the length of your required Password,At least 8 characters but no more than 128!"));
+  var required  =parseFloat(prompt("Please specify the length of your required Password,At least 8 characters but no more than 128!"));
   alert("Please Chose at least on Character Type!")
   for (var t=0;t<allTypes.length;t++){
     var userReply = confirm(`Do you want your password to include ${allTypes[t]}`)
@@ -107,9 +107,9 @@ function getPasswordOptions() {
       }
   } 
   if (((required<129) && (required>8)) && usercharacterChoiec.length>0 ){
-    alert("Alright you did it right SAJ, Lets gooooooo!")
+    alert("Alright,Lets go!")
   }
-  else if(((required>128) || (required<8))) {
+  else if((required>128) || (required<8)|| isNaN(required)) {
     alert("Please make sure to chose a number between 8 and 128(both inclusive)!" )
     usercharacterChoiec = []
     requiredLength=getPasswordOptions()

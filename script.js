@@ -100,9 +100,9 @@ var requiredLength
 // Function to prompt user for password options
 function getPasswordOptions() {
   var required  =parseFloat(prompt("Please specify the length of your required Password,At least 8 characters but no more than 128!"));
-  alert("Please Chose at least on Character Type!")
+  alert("Please Choose at least on Character Type!")
   for (var t=0;t<allTypes.length;t++){
-    var userReply = confirm(`Do you want your password to include ${allTypes[t]}`)
+    var userReply = confirm(`Do you want your password to include ${allTypes[t]}?`)
       if(userReply){
         usercharacterChoiec.push(allTypes[t])
       }
@@ -157,12 +157,17 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
+  requiredLength=getPasswordOptions()
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
+  usercharacterChoiec = []
+  randomCharacterChoiec = []
+  valueArray = []
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-requiredLength=getPasswordOptions()
+
+

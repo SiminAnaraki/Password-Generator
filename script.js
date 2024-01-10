@@ -100,6 +100,11 @@ var requiredLength
 // Function to prompt user for password options
 function getPasswordOptions() {
   var required  =parseFloat(prompt("Please specify the length of your required Password,At least 8 characters but no more than 128!"));
+  if((required>128) || (required<8)|| isNaN(required)) {
+    alert("Please make sure to chose a number between 8 and 128(both inclusive)!" )
+    usercharacterChoiec = []
+   return getPasswordOptions()
+  }
   alert("Please Choose at least on Character Type!")
   for (var t=0;t<allTypes.length;t++){
     var userReply = confirm(`Do you want your password to include ${allTypes[t]}?`)
@@ -111,7 +116,7 @@ function getPasswordOptions() {
     alert("Alright,Lets go!")
     return required
   }
-  else if((required>128) || (required<8)|| isNaN(required)) {
+  if((required>128) || (required<8)|| isNaN(required)) {
     alert("Please make sure to chose a number between 8 and 128(both inclusive)!" )
     usercharacterChoiec = []
    return getPasswordOptions()
